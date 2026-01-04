@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CharT</title>
+	</head>
+	<style>
+		* 
+		{
+			padding: 0;
+			margin: 0;
+			font-family: 'Courier New', Courier, monospace;
+			color: rgb(241, 204, 229);
+		}
+		body 
+		{
+			background-color: #000000;
+		}
+		.App 
+		{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-flow: column;
+		}
+		.CharCard 
+		{
+			display: flex;
+			flex-flow: column;
+			border: dashed rgb(158, 54, 106) 4px;
+			margin: 64px;
+			max-width: 320px;
+		}
+		.CharCardTitleContainer 
+		{
+			padding: 8px;
+			font-size: large;
+			font-weight: bolder;
+			border: double rgb(158, 54, 106) 4px;
+		}
+		.CharImg 
+		{
+			width: 320px;
+		}
+		.CharCardTextContainer 
+		{
+			border: double rgb(158, 54, 106) 2px;
+		}
+		.VoteSend 
+		{
+			border: double rgb(158, 54, 106) 4px;
+			font-size: 32px;
+			padding: 8px;
+			text-align: center;
+			align-items: center;
+			font-weight: bolder;
+			cursor: pointer;
+		}
+		.VoteSend:hover 
+		{
+
+			border: double rgb(250, 103, 176) 4px;
+		}
+		.Sliders 
+		{
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+		}
+		.SliderBotImage img
+		{
+			width: 320px;
+		}
+		.Sliders input 
+		{
+			width: 320px;
+		}
+	</style>
+	<body>
+		<div class="App">
+			<div class="CharCard">
+				<div class="CharCardTitleContainer" id="CharTitle"><div>Game Title - Char Name</div></div>
+				<div class="CharCardImageContainer"><img id="CharImage" class="CharImg"/></div>
+				<div class="CharCardTextContainer" id="CharDesc">Char Description</div>
+			</div>
+			<div class="Sliders">
+
+				<div class="SliderTitle">Color</div>
+				<div class="SliderContainer">
+					<div class="SliderPic"></div>
+					<input type="range"
+					min="0"
+					max="100"
+					step="1"
+					value="50">
+					<div class="SliderPic"></div>
+				</div>
+				<div class="SliderBotImage"><img src="media/grad.png"/></div>
+				<div class="SliderTitle">Hairness</div>
+				<div class="SliderContainer">
+					<div class="SliderPic"></div>
+					<input type="range"
+					min="0"
+					max="100"
+					step="1"
+					value="50">
+					<div class="SliderPic"></div>
+				</div>
+				<div class="SliderBotImage"></div>
+				<div class="SliderTitle">Tightness</div>
+				<div class="SliderContainer">
+					<div class="SliderPic"></div>
+					<input type="range"
+					min="0"
+					max="100"
+					step="1"
+					value="50">
+					<div class="SliderPic"></div>
+				</div>
+				<div class="SliderBotImage"></div>
+			</div>
+			<div class="VoteSend">Vote!</div>
+		</div>
+
+		<script>
+			fetch("/api/r").then(res=>{res.text().then((char)=>{
+				CharImage.src = `/media/chars/${char}/pic.png`;
+
+				fetch(`/media/chars/${char}/info.json`)
+				.then(response => response.json())
+				.then(data => {
+					CharTitle.innerText = data.title;
+					CharDesc.innerText = data.description;
+				})
+				.catch(error => {
+				  console.error('Error loading JSON:', error);
+				});
+			})});
+		</script>
+	</body>
+</html>
