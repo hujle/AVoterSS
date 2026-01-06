@@ -48,7 +48,7 @@
 	
 			if(char == "TheVoteIsDone") 
 			{
-				window.history.pushState(null, null, `/end/`);
+				window.history.pushState(null, null, `/end`);
 				return;
 			}
 	
@@ -78,7 +78,7 @@
 				body: JSON.stringify({char: displayedCharacter, color: ColorSlider.value, hair: HairSlider.value, tight: TightSlider.value})
 			});
 			setTimeout(()=>{
-				window.location = '/vote/';
+				window.location = '/vote';
 			}, 100);
 		}
 	</script>

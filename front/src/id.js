@@ -1,3 +1,7 @@
+const r = ()=>
+{
+	const l = localStorage.i ? window.history.pushState(null, null, '/vote') : null;
+}
 async function InitialiseId() 
 {
 	let savedUid;
