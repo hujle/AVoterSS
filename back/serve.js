@@ -4,6 +4,7 @@ const fs = require('fs');
 const { exit } = require('process');
 const crypto = require('crypto')
 
+const salt = "4401";
 
 const charDirs = fs.readdirSync("../front/media/chars", { withFileTypes: true })
 .filter(dirent => dirent.isDirectory())
@@ -13,7 +14,7 @@ const app = express();
 app.use(express.json());
 
 app.get('{*any}', (req, res, next)=>{
-	if(req.path.startsWith('/media') || req.path.startsWith('/src') || req.path.startsWith('/styles') || req.path.startsWith('/html') || req.path.startsWith('/api')) 
+	if(req.path.startsWith('/favicon.ico') || req.path.startsWith('/media') || req.path.startsWith('/src') || req.path.startsWith('/styles') || req.path.startsWith('/html') || req.path.startsWith('/api')) 
 	{
 		return next(); 
 	}
@@ -26,7 +27,7 @@ function generateId(req)
 {
 	const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
 	const userAgent = req.headers['user-agent'];
-	const generatedId = crypto.createHash('md5').update(ip).update(userAgent).digest('hex');
+	const generatedId = crypto.createHash('sha256').update(ip).update(userAgent).update(salt).digest('hex');
 	return generatedId;
 }
 
