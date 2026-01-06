@@ -1,4 +1,5 @@
 back/votes/*
+front/media/chars/*
 # Logs
 logs
 *.log
