@@ -130,7 +130,7 @@ app.post('/api/v', async(req,res)=>{
 	const colorVal = voteValue(req.body.color);
 	const hairVal = voteValue(req.body.hair);
 	const tightVal = voteValue(req.body.tight);
-	const charExists = false;
+	let charExists = false;
 	for(const char of charDirs) if(char == req.body.char) charExists = true;
 	if(!charExists) 
 	{
