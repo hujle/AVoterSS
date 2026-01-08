@@ -91,6 +91,7 @@ class CharStatCard extends HTMLElement
 		
 		this.character = this.attributes.character.value;
 		this.image.src = `/media/chars/${this.character}/pic.png`;
+		this.image.classList.add("CharImg");
 
 		(async()=>{
 			const info = JSON.parse(await (await fetch(`/media/chars/${this.character}/info.json`)).text());
