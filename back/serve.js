@@ -176,4 +176,58 @@ app.get('/api/i', (req,res)=>{
 	res.send(getUserId(req));
 });
 
+function collectVotesCount() 
+{
+	const voteStats = {};
+	const maxVoteValue = 100;
+
+	for(const char of charDirs) 
+	{
+		voteStats[char]	= 
+		{
+			hair: [],
+			color: [],
+			tight: []
+		};
+		const voteCharStat = voteStats[char];
+		for(let i = 0; i <= maxVoteValue; i++) 
+		{
+			voteCharStat.hair.push(0);
+			voteCharStat.color.push(0);
+			voteCharStat.tight.push(0);
+		}
+	}
+	
+	const voteEntries = fs.readdirSync("./votes/", { withFileTypes: true });
+
+	for(const voteEntryPath of voteEntries) 
+	{
+		const voteData = JSON.parse(fs.readFileSync(`./votes/${voteEntryPath.name}`)) 
+		if(voteData.cookieId) continue;
+		for(const voteChar in voteData) 
+		{
+			voteStats[voteChar].hair[voteData[voteChar].hair]++;
+			voteStats[voteChar].color[voteData[voteChar].color]++;
+			voteStats[voteChar].tight[voteData[voteChar].tight]++;
+		}
+	}
+	return voteStats;
+}
+
+const statsSaveFile = "./statscache.json";
+
+const statsCollected = collectVotesCount();
+fs.writeFileSync(statsSaveFile, JSON.stringify(statsCollected));
+
+setInterval(()=>{
+	const statsCollected = collectVotesCount();
+	fs.writeFileSync(statsSaveFile, JSON.stringify(statsCollected));
+}, 1000 * 60 * 10); 
+
+app.get('/api/stats', (req, res)=>
+{
+	const stats = JSON.parse(fs.readFileSync(statsSaveFile));
+	res.json(stats);
+});
+
 app.listen(3301);
