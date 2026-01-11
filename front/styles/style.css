@@ -1,81 +1,292 @@
+@font-face {
+  font-family: RM2000Alt;
+  src: url(RM2000Alt.ttf);
+}
 
-* 
-{
+@font-face {
+  font-family: YN;
+  src: url(yummy\ nickels.ttf);
+}
+
+* {
 	padding: 0;
 	margin: 0;
-	font-family: 'Courier New', Courier, monospace;
-	color: rgb(241, 204, 229);
+	font-family: 'RM2000Alt', Courier, monospace;
+	color: #c692c6;
+	box-sizing: border-box;
 }
-body 
-{
-	background-color: #000000;
+body {
+	background: black;
+	background-attachment: fixed;
+	min-height: 100vh;
 }
-.App 
-{
+
+.App {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-flow: column;
+	padding: 16px;
+	min-height: 100vh;
 }
-.CharCard 
-{
-	display: flex;
-	flex-flow: column;
-	border: dashed rgb(158, 54, 106) 4px;
-	margin: 32px;
-	max-width: 320px;
-}
-.CharCardTitleContainer 
-{
-	padding: 8px;
-	font-size: large;
-	font-weight: bolder;
-	border: double rgb(158, 54, 106) 4px;
-}
-.CharImg 
-{
-	width: 320px;
-}
-.CharCardTextContainer 
-{
-	border: double rgb(158, 54, 106) 2px;
-}
-.VoteSend 
-{
-	border: double rgb(158, 54, 106) 4px;
-	font-size: 32px;
-	padding: 8px;
-	text-align: center;
-	align-items: center;
-	font-weight: bolder;
-	cursor: pointer;
-}
-.VoteSend:hover 
-{
 
-	border: double rgb(250, 103, 176) 4px;
+/* Start Page */
+.StartContainer {
+	text-align: center;
+	max-width: 1200px;
+}
+
+.StartTitle {
+	font-size: clamp(2rem, 8vw, 4rem);
+	font-family: 'YN', Courier, monospace;
+	text-shadow: 0px 0px 10px rgba(158, 54, 106, 0.8);
+	margin-bottom: 16px;
+}
+
+.StartDescription {
+	font-size: clamp(1rem, 4vw, 1.5rem);
+	text-shadow: 0px 0px 10px rgba(158, 54, 106, 0.8);
+	margin-bottom: 32px;
+	opacity: 0.9;
+	line-height: 1.6;
+}
+
+#StartOnClick {
+	display: inline-block;
+	padding: 16px 32px;
+	border: 16px solid transparent;
+	border-image: url("/media/border2.png") 16 round;
+	font-size: clamp(1rem, 4vw, 1.5rem);
+	font-weight: bolder;
+	text-decoration: none;
+	text-shadow: 0px 0px 10px rgba(158, 54, 106, 0.8);
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+#StartOnClick:hover {
+	transform: scale(1.05);
 	user-select: none;
 }
-.Sliders 
-{
+
+/* Character Card */
+.CharCard {
+	display: flex;
+	flex-flow: column;
+/*	border: 16px solid transparent;
+	border-image: url("/media/border.png") 40 round; */
+	margin: 8px;
+	width: 100%;
+	max-width: 1200px;
+	background: black;
+	backdrop-filter: blur(10px);
+	transition: all 0.3s ease;
+	flex-shrink: 0;
+}
+
+.CharCardTitleContainer {
+	width: fit-content;
+	align-self: center;
+	padding: 8px;
+	font-size: clamp(1rem, 4vw, 1.5rem);
+	text-shadow: 0px 0px 10px rgba(158, 54, 106, 0.8);
+	font-weight: bolder;
+	border: 16px solid transparent;
+	border-image: url("/media/border2.png") 16 round;
+/*	border-bottom: 16px solid transparent;
+	border-image: url("/media/border.png") 40 round; */
+	text-align: center;
+}
+
+.CharCardImageContainer {
+	border: 16px solid transparent;
+	border-image: url("/media/border.png") 40 round;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	align-self: center;
+	height: 320px;
+	width: 320px;
+	margin: 32px;
+}
+
+.CharImg {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.CharCardTextContainer {
+/*	border-top: 16px solid transparent;
+	border-image: url("/media/border.png") 40 round; */
+	border: 16px solid transparent;
+	border-image: url("/media/border2.png") 16 round;
+	padding: 8px;
+	font-size: clamp(1rem, 4vw, 1.5rem);
+	text-shadow: 0px 0px 10px rgba(158, 54, 106, 0.8);
+	line-height: 1.4;
+	min-height: 60px;
+	width: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: center;
+}
+
+.VoteSendContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1200px;
+	margin: 32px 8px;
+	flex-shrink: 0;
+}
+
+.VoteSend {
+	border: 16px solid transparent;
+	border-image: url("/media/border2.png") 16 round;
+	font-size: clamp(1rem, 4vw, 1.5rem);
+	padding: 12px;
+	text-align: center;
+	font-weight: bolder;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	flex-shrink: 0;
+}
+
+.VoteSend:hover {
+	transform: scale(1.05);
+	user-select: none;
+}
+
+/* Sliders */
+.Sliders {
 	display: flex;
 	flex-flow: column;
 	align-items: center;
-}
-.SliderBotImage img
-{
-	width: 320px;
-}
-.Sliders input 
-{
-	width: 320px;
+	align-self: center;
+	width: 100%;
+	max-width: 1200px;
+	margin: 8px;
+	gap: 16px;
+	flex-shrink: 0;
 }
 
-#StatsContainer 
-{
+.SliderTitle {
+	font-size: clamp(1rem, 4vw, 1.5rem);
+	font-weight: bold;
+}
+
+.SliderContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 0;
+	width: 100%;
+	position: relative;
+	height: auto;
+}
+
+.Sliders input[type="range"] {
+	width: 100%;
+	max-width: 350px;
+	height: 10px;
+	border-radius: 6px;
+	outline: none;
+	-webkit-appearance: none;
+	appearance: none;
+	cursor: pointer;
+	flex: 1;
+	position: relative;
+	z-index: 5;
+}
+
+#ColorSlider {
+	background: linear-gradient(90deg, #f3e2da 0%, #e9c6b1 16.67%, #e3b88e 33.33%, #d09554 50%, #946843 83.33%, #493f35 100%);
+}
+
+#HairSlider,
+#TightSlider {
+	background: rgba(198, 146, 198, 0.5);
+}
+
+.Sliders input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: rgb(198, 146, 198);
+	cursor: pointer;
+	box-shadow: 0px 0px 10px rgba(158, 54, 106, 0.8);
+	border: 2px solid rgb(158, 54, 106);
+}
+
+.Sliders input[type="range"]::-moz-range-thumb {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: rgb(198, 146, 198);
+	cursor: pointer;
+	box-shadow: 0px 0px 10px rgba(158, 54, 106, 0.8);
+	border: 2px solid rgb(158, 54, 106);
+}
+
+.SliderTooltip {
+	position: absolute;
+	top: -32px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: rgba(158, 54, 106, 0.8);
+	color: rgb(198, 146, 198);
+	padding: 6px 12px;
+	border-radius: 4px;
+	font-size: clamp(0.8rem, 4vw, 1rem);
+	font-weight: bold;
+	white-space: nowrap;
+	pointer-events: none;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s ease, visibility 0.2s ease;
+	z-index: 10;
+	box-shadow: 0px 0px 10px rgba(158, 54, 106, 0.8);
+}
+
+.SliderTooltip::after {
+	content: '';
+	position: absolute;
+	bottom: -6px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid rgba(158, 54, 106, 0.9);
+}
+
+/* Stats */
+#StatsContainer {
 	display: flex;
 	flex-flow: row;
 	align-items: baseline;
 	justify-content: space-around;
 	flex-wrap: wrap;
+	width: 100%;
+	gap: 16px;
+	max-width: 1400px;
+}
+
+/* End Page */
+.EndContainer {
+	text-align: center;
+	max-width: 600px;
+}
+
+.EndTitle {
+	font-size: clamp(1.5rem, 6vw, 3rem);
+	font-weight: bolder;
+	margin-bottom: 24px;
 }
