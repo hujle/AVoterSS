@@ -444,10 +444,7 @@ char-stat-card.CharCard {
 		height: 800px;
 	}
 	.Sliders input[type="range"] {
-		max-width: 600px;
-		-webkit-min-width: 100%;
-		-moz-min-width: 100%;
-		min-width: 100%;
+		max-width: 800px;
 		height: 20px;
 		border-radius: 12px;
 		-webkit-box-sizing: border-box;
