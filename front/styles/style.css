@@ -272,7 +272,7 @@ char-stat-card.CharCard {
 	height: auto;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1080px) {
 	* {
 		font-size: clamp(1rem, 8vw, 2rem);
 	}
