@@ -18,11 +18,22 @@ function initSliderTooltips() {
 		tooltip.textContent = suggestions[2]; // Start with middle suggestion
 		container.insertBefore(tooltip, slider);
 
-		// Slider thumb radius (not sure why, but 11px seems to work well)
-		const thumbRadius = 11;
+		// Function to get thumb radius based on screen size
+		function getThumbRadius() {
+			const isMobile = window.matchMedia('(max-width: 1100px)').matches;
+			// Desktop: 18px thumb, radius = 9px; Mobile: 36px thumb, radius = 18px
+			// Using slightly larger values for proper track coverage
+			return isMobile ? 20 : 11;
+		}
+
+		// Get initial thumb radius
+		let thumbRadius = getThumbRadius();
 
 		// Function to update tooltip position
 		function updateTooltipPosition() {
+			// Recalculate thumb radius in case screen size changed
+			thumbRadius = getThumbRadius();
+			
 			const value = parseInt(slider.value);
 			const max = parseInt(slider.max);
 			const min = parseInt(slider.min);
@@ -75,7 +86,9 @@ function initSliderTooltips() {
 		});
 
 		// Update on window resize
-		window.addEventListener('resize', updateTooltipPosition);
+		window.addEventListener('resize', () => {
+			updateTooltipPosition();
+		});
 
 		// Initialize position
 		setTimeout(updateTooltipPosition, 0);
