@@ -494,3 +494,115 @@ char-stat-card.CharCard {
 		width: 800px;
 	}
 }
+
+@media (max-width: 768px) {
+	* {
+		font-size: clamp(0.875rem, 6vw, 1.75rem);
+	}
+	.StartTitle {
+		font-size: clamp(1.75rem, 8vw, 3.5rem);
+	}
+	.CharCardImageContainer {
+		width: 600px;
+		height: 600px;
+	}
+	.Sliders input[type="range"] {
+		max-width: 600px;
+		height: 18px;
+		border-radius: 11px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+  	.Sliders input[type="range"]::-webkit-slider-thumb {
+		width: 32px;
+		height: 32px;
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
+		margin-top: 9px;
+	}
+	.Sliders input[type="range"]::-webkit-slider-runnable-track {
+		height: 18px;
+		position: relative;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+	.Sliders input[type="range"]::-moz-range-thumb {
+		width: 32px;
+		height: 32px;
+	}
+	.SliderTooltip {
+		top: -38px;
+		font-size: clamp(0.875rem, 2vw, 1.75rem);
+		-webkit-transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		transform: translateX(-50%);
+	}
+	.VoteSend {
+		padding: 14px 28px;
+	}
+	char-stat-card {
+		max-width: 600px;
+	}
+	char-stat-card.CharCard {
+		width: 600px;
+	}
+}
+
+@media (max-width: 480px) {
+	* {
+		font-size: clamp(0.75rem, 5vw, 1.5rem);
+	}
+	.StartTitle {
+		font-size: clamp(1.5rem, 7vw, 2.5rem);
+	}
+	.CharCardImageContainer {
+		width: 400px;
+		height: 400px;
+	}
+	.Sliders input[type="range"] {
+		max-width: 400px;
+		height: 16px;
+		border-radius: 10px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+  	.Sliders input[type="range"]::-webkit-slider-thumb {
+		width: 28px;
+		height: 28px;
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
+		margin-top: 8px;
+	}
+	.Sliders input[type="range"]::-webkit-slider-runnable-track {
+		height: 16px;
+		position: relative;
+		top: 50%;
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+	.Sliders input[type="range"]::-moz-range-thumb {
+		width: 28px;
+		height: 28px;
+	}
+	.SliderTooltip {
+		top: -36px;
+		font-size: clamp(0.75rem, 2vw, 1rem);
+		-webkit-transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		transform: translateX(-50%);
+	}
+	.VoteSend {
+		padding: 12px 24px;
+	}
+	char-stat-card {
+		max-width: 400px;
+	}
+	char-stat-card.CharCard {
+		width: 400px;
+	}
+}
