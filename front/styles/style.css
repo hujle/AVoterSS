@@ -13,6 +13,11 @@
 	font-size: clamp(1rem, 4vw, 1.25rem);
 	color: #c692c6;
 	text-shadow: 0px 0px 10px rgba(158, 54, 106, 0.8);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 html, body {
@@ -27,9 +32,17 @@ html, body {
 .App {
 	min-height: 100vh;
 	width: 100%;
+	display: -webkit-flex;
+	display: -moz-flex;
 	display: flex;
+	-webkit-align-items: center;
+	-moz-align-items: center;
 	align-items: center;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
 	justify-content: center;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
 	flex-direction: column;
 }
 
@@ -37,9 +50,17 @@ html, body {
 
 .StartContainer {
 	text-align: center;
+	display: -webkit-flex;
+	display: -moz-flex;
 	display: flex;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
 	flex-direction: column;
+	-webkit-align-items: center;
+	-moz-align-items: center;
 	align-items: center;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
 	justify-content: center;
 	margin: 16px;
 }
@@ -61,19 +82,38 @@ html, body {
 	font-weight: bolder;
 	text-decoration: none;
 	cursor: pointer;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
 	transition: all 0.3s ease;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 #StartOnClick:hover {
+	-webkit-transform: scale(1.05);
+	-moz-transform: scale(1.05);
+	-ms-transform: scale(1.05);
 	transform: scale(1.05);
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 }
 
 /* Vote Page */
 
 .CharCard {
+	display: -webkit-flex;
+	display: -moz-flex;
 	display: flex;
+	-webkit-align-items: center;
+	-moz-align-items: center;
 	align-items: center;
+	-webkit-flex-flow: column;
+	-moz-flex-flow: column;
 	flex-flow: column;
 }
 
@@ -86,19 +126,33 @@ html, body {
 }
 
 .CharCardImageContainer {
+	display: -webkit-flex;
+	display: -moz-flex;
 	display: flex;
+	-webkit-align-items: center;
+	-moz-align-items: center;
 	align-items: center;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
 	justify-content: center;
 	border: 16px solid transparent;
 	border-image: url("/media/border.png") 40 round;
 	width: 350px;
 	height: 350px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .CharImg {
 	width: 100%;
 	height: 100%;
+	-webkit-object-fit: cover;
+	-moz-object-fit: cover;
 	object-fit: cover;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 
 .CharCardTextContainer {
@@ -109,16 +163,32 @@ html, body {
 }
 
 .Sliders {
+	display: -webkit-flex;
+	display: -moz-flex;
 	display: flex;
+	-webkit-flex-flow: column;
+	-moz-flex-flow: column;
 	flex-flow: column;
+	-webkit-align-items: center;
+	-moz-align-items: center;
 	align-items: center;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
 	justify-content: center;
 }
 
 .SliderContainer {
+	display: -webkit-flex;
+	display: -moz-flex;
 	display: flex;
+	-webkit-flex-direction: row;
+	-moz-flex-direction: row;
 	flex-direction: row;
+	-webkit-align-items: center;
+	-moz-align-items: center;
 	align-items: center;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
 	justify-content: center;
 	position: relative;
 	margin: 8px;
@@ -130,6 +200,11 @@ html, body {
 	height: 10px;
 	border-radius: 6px;
 	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: transparent;
+	border: none;
 }
 
 #ColorSlider {
@@ -141,6 +216,7 @@ html, body {
 }
 
 .Sliders input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
 	width: 18px;
 	height: 18px;
 	border-radius: 50%;
@@ -148,6 +224,14 @@ html, body {
 	cursor: pointer;
 	box-shadow: 0px 0px 10px rgba(158, 54, 106, 0.8);
 	border: 2px solid rgb(158, 54, 106);
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+
+.Sliders input[type="range"]::-webkit-slider-runnable-track {
+	background: inherit;
+	border-radius: 6px;
+	height: 10px;
 }
 
 .Sliders input[type="range"]::-moz-range-thumb {
@@ -158,12 +242,27 @@ html, body {
 	cursor: pointer;
 	box-shadow: 0px 0px 10px rgba(158, 54, 106, 0.8);
 	border: 2px solid rgb(158, 54, 106);
+	-moz-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+
+.Sliders input[type="range"]::-moz-range-track {
+	background: transparent;
+	border: none;
+}
+
+.Sliders input[type="range"]::-moz-range-progress {
+	background-color: rgba(198, 146, 198, 0.5);
+	border-radius: 6px;
 }
 
 .SliderTooltip {
 	position: absolute;
 	top: -32px;
 	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
 	transform: translateX(-50%);
 	background: rgba(158, 54, 106, 0.8);
 	padding: 6px 12px;
@@ -174,9 +273,15 @@ html, body {
 	pointer-events: none;
 	opacity: 0;
 	visibility: hidden;
+	-webkit-transition: opacity 0.2s ease, visibility 0.2s ease;
+	-moz-transition: opacity 0.2s ease, visibility 0.2s ease;
+	-o-transition: opacity 0.2s ease, visibility 0.2s ease;
 	transition: opacity 0.2s ease, visibility 0.2s ease;
 	z-index: 10;
 	box-shadow: 0px 0px 10px rgba(158, 54, 106, 0.8);
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 
 .SliderTooltip::after {
@@ -193,8 +298,14 @@ html, body {
 }
 
 .VoteSendContainer {
+	display: -webkit-flex;
+	display: -moz-flex;
 	display: flex;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
 	justify-content: center;
+	-webkit-align-items: center;
+	-moz-align-items: center;
 	align-items: center;
 }
 
@@ -205,11 +316,24 @@ html, body {
 	padding: 8px;
 	text-align: center;
 	cursor: pointer;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
 	transition: all 0.3s ease;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .VoteSend:hover {
+	-webkit-transform: scale(1.05);
+	-moz-transform: scale(1.05);
+	-ms-transform: scale(1.05);
 	transform: scale(1.05);
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 }
 
@@ -217,9 +341,17 @@ html, body {
 
 .EndContainer {
 	text-align: center;
+	display: -webkit-flex;
+	display: -moz-flex;
 	display: flex;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
 	flex-direction: column;
+	-webkit-align-items: center;
+	-moz-align-items: center;
 	align-items: center;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
 	justify-content: center;
 	margin: 16px;
 }
@@ -236,15 +368,29 @@ html, body {
 }
 
 #StatsContainer {
+	display: -webkit-flex;
+	display: -moz-flex;
 	display: flex;
+	-webkit-flex-flow: row;
+	-moz-flex-flow: row;
 	flex-flow: row;
+	-webkit-align-items: flex-start;
+	-moz-align-items: flex-start;
 	align-items: flex-start;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
 	justify-content: center;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
 	flex-wrap: wrap;
 }
 
 char-stat-card {
+	display: -webkit-flex;
+	display: -moz-flex;
 	display: flex;
+	-webkit-flex-flow: column;
+	-moz-flex-flow: column;
 	flex-flow: column;
 	max-width: 400px;
 }
@@ -254,8 +400,14 @@ char-stat-card.CharCard {
 }
 
 .GraphContainer {
+	display: -webkit-flex;
+	display: -moz-flex;
 	display: flex;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
 	flex-direction: column;
+	-webkit-align-items: center;
+	-moz-align-items: center;
 	align-items: center;
 	padding: 6px;
 	margin: 4px;
@@ -288,17 +440,13 @@ char-stat-card.CharCard {
 		height: 20px;
 		border-radius: 12px;
 	}
-/*  	.Sliders input[type="range"]::-webkit-slider-thumb {
-		width: 36px;
-		height: 36px;
-	}
-	.Sliders input[type="range"]::-moz-range-thumb {
-		width: 36px;
-		height: 36px;
-	} */
 	.SliderTooltip {
 		top: -64px;
 		font-size: clamp(1rem, 2vw, 2rem);
+		-webkit-transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		transform: translateX(-50%);
 	}
 	.VoteSend {
 		padding: 16px 32px;
