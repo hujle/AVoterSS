@@ -440,13 +440,17 @@ char-stat-card.CharCard {
 		height: 20px;
 		border-radius: 12px;
 	}
+  	.Sliders input[type="range"]::-webkit-slider-thumb {
+		width: 36px;
+		height: 36px;
+	}
+	.Sliders input[type="range"]::-moz-range-thumb {
+		width: 36px;
+		height: 36px;
+	}
 	.SliderTooltip {
 		top: -64px;
 		font-size: clamp(1rem, 2vw, 2rem);
-		-webkit-transform: translateX(-50%);
-		-moz-transform: translateX(-50%);
-		-ms-transform: translateX(-50%);
-		transform: translateX(-50%);
 	}
 	.VoteSend {
 		padding: 16px 32px;
